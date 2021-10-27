@@ -1,0 +1,54 @@
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px !important;
+  background-color: transparent;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+tr th {
+  background-color: #424242;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+tr {
+  background-color: #424242;
+
+  &:hover {
+    background-color: #595959;
+    cursor: pointer;
+  }
+}
+
+tr td:first-child,
+tr th:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+tr td:last-child,
+tr th:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+mat-paginator {
+  background-color: transparent;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  color: #fff;
+  width: 100%;
+}

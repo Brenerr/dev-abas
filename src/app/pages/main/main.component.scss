@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px !important;
+  background-color: transparent;
+}
+
+td,
+th {
+  width: 25%;
+}
+
+tr td,
+tr th {
+  background-color: #424242;
+}
+tr td:first-child,
+tr th:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+tr td:last-child,
+tr th:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+}
+
+mat-paginator {
+  background-color: transparent;
+}
+
+.no-data-text {
+  color: #fff;
+  font-size: x-large;
+  font-weight: bold;
+}
+
