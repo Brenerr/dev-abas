@@ -1,4 +1,4 @@
-<main>
+<main class="pt-5">
 
   <button mat-raised-button class="mb-4" [routerLink]="['/listagem']">
     Cadastrar
@@ -7,29 +7,34 @@
   <div *ngIf="dataSource.data.length > 0">
     <table mat-table [dataSource]="dataSource" id="data-table">
 
-      <!-- ispb Column -->
-      <ng-container matColumnDef="ispb">
-        <th mat-header-cell *matHeaderCellDef class="description"> ISPB </th>
-        <td mat-cell *matCellDef="let row"> {{row.ispb}} </td>
+      <!-- bankCode Column -->
+      <ng-container matColumnDef="bankCode">
+        <th mat-header-cell *matHeaderCellDef class="description">Código do banco</th>
+        <td mat-cell *matCellDef="let row"> {{row.bankCode}} </td>
       </ng-container>
 
-      <!-- name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef class="description"> Nome </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      <!-- agency Column -->
+      <ng-container matColumnDef="agency">
+        <th mat-header-cell *matHeaderCellDef class="description">Agência</th>
+        <td mat-cell *matCellDef="let row"> {{row.agency}} </td>
       </ng-container>
 
-      <!-- code Column -->
-      <ng-container matColumnDef="code">
-        <th mat-header-cell *matHeaderCellDef class="description"> Código </th>
-        <td mat-cell *matCellDef="let row"> {{row.code}} </td>
+      <!-- accountCode Column -->
+      <ng-container matColumnDef="accountCode">
+        <th mat-header-cell *matHeaderCellDef class="description"> Código da conta</th>
+        <td mat-cell *matCellDef="let row"> {{row.accountCode}} </td>
       </ng-container>
 
-
-      <!-- fullName Column -->
-      <ng-container matColumnDef="fullName">
-        <th mat-header-cell *matHeaderCellDef class="description"> Nome completo </th>
-        <td mat-cell *matCellDef="let row"> {{row.fullName}} </td>
+      <!-- Remove Column -->
+      <ng-container matColumnDef="remove">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="text-end">Remover</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="d-flex align-items-center justify-content-end">
+            <button mat-icon-button (click)="removeAccount(row)">
+              <mat-icon style="color: #e5383b">highlight_off</mat-icon>
+            </button>
+          </div>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

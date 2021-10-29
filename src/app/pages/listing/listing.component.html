@@ -1,9 +1,12 @@
-<main>
-  <button mat-raised-button class="mb-4" [routerLink]="['/']">Voltar</button>
+<main class="pt-5">
+  <button mat-icon-button class="mb-4" [routerLink]="['/']">
+    <mat-icon style="color: #ccc">arrow_back_ios</mat-icon>
+  </button>
 
-  <mat-form-field appearance="standard">
-    <mat-label>Buscar</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Banco Central do Brasil" #input>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Busca pelo código do banco</mat-label>
+    <input [(ngModel)]="code" (keyup.enter)="searchCode()" type="text" matInput placeholder="Ex: 430">
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 
   <div>

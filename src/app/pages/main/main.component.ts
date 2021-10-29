@@ -1,14 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Bank } from 'src/app/core/models/Bank';
-
-
-const DATA: Bank[] = [
-  {ispb: "00000000", name: "BCO DO BRASIL S.A.", code: 1, fullName: "Banco do Brasil S.A."},
-  {ispb: "00000000", name: "BCO DO BRASIL S.A.", code: 1, fullName: "Banco do Brasil S.A."},
-  {ispb: "00000000", name: "BCO DO BRASIL S.A.", code: 1, fullName: "Banco do Brasil S.A."},
-];
+import { Account } from 'src/app/core/models/Account';
 
 @Component({
   selector: 'app-main',
@@ -17,20 +10,32 @@ const DATA: Bank[] = [
 })
 export class MainComponent implements OnInit {
 
-  displayedColumns: string[] = ['ispb', 'name', 'code', 'fullName'];
-  dataSource: MatTableDataSource<Bank>;
+  listAccounts: Account[] = [];
+  displayedColumns: string[] = ['bankCode', 'agency', 'accountCode', 'remove'];
+  dataSource: MatTableDataSource<Account>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor() {
-    const users = DATA
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
+    this.getAllAccounts();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+  }
+
+  getAllAccounts(){
+    this.listAccounts = localStorage.getItem('account') ? JSON.parse(localStorage.getItem('account')!) : [];
+    this.dataSource = new MatTableDataSource(this.listAccounts);
+  }
+
+  removeAccount(account: Account) {
+    this.listAccounts = this.listAccounts.filter(item => item.accountCode !== account.accountCode);
+    localStorage.setItem('account', JSON.stringify(this.listAccounts));
+    this.getAllAccounts();
   }
 
 }
