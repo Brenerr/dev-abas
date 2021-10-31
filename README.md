@@ -1,27 +1,51 @@
 # DevAbas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli) versão 12.1.0.
 
-## Development server
+<div align="center" >
+  <h2 align="center">Tela inicial</h2>
+  <img src="./Tela_inicial.png" alt="tela inicial" width="100%">
+  <br>
+  <h2 align="center">Tela de listagem</h2>
+  <img src="./Tela_listagem.png" alt="Tela de listagem" width="100%">
+  <br>
+  <h2 align="center">Tela de cadastro</h2>
+  <img src="./Tela_cadastro.png" alt="Tela de cadastro" width="100%">
+  <br>
+</div>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## 🛠 Tecnologias
 
-## Code scaffolding
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+- HTML
+- SCSS
+- JavaScript
+- TypeScript
+- Angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📜 Projeto
 
-## Build
+O projeto tem por objetivo cadastrar contas bancárias pessoais. Utiliza a api pública: https://brasilapi.com.br/api/banks/v1 para listar e buscar os bancos, e armazena no local storage do dispositivo as contas cadastradas. Desenvolvido com a finalidade para teste e estudos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 📚 Pré-requisitos
 
-## Running unit tests
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Angular CLI](https://github.com/angular/angular-cli).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### ⚙️ Rodando o Web
 
-## Running end-to-end tests
+```bash
+# Clone este repositório
+$ git clone https://github.com/Brenerr/dev-abas.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd dev-abas
 
-## Further help
+# Instale as dependências
+$ npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Execute a aplicação em modo de desenvolvimento
+$ ng server 
+
+# Abra no seu navegador: `http://localhost:4200/`.
