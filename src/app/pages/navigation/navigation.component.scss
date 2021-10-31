@@ -1,5 +1,34 @@
 .navbar {
+  opacity: 0;
   position: fixed;
   z-index: 999;
-  background-color: rgba(33, 33, 33, 0.95);
+  background-color: rgba(33, 33, 33);
+  transition: opacity 0.4s;
+}
+
+.show-toolbar {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.text-title {
+  font-weight: bold;
+  color: #69f0ae;
+  margin: 0;
+}
+
+.icon-social {
+  color: #69f0ae;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(33, 33, 33);
+  padding: 15px 0;
+}
+
+.page {
+  min-height: 100vh;
 }

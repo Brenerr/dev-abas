@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Account } from 'src/app/core/models/Account';
@@ -19,10 +19,10 @@ export class RegistrationComponent implements OnInit {
   listAccounts: Account[] = [];
   bank!: Bank;
 
-  accountForm = this.fb.group({
-    bankCode: '',
-    agency: '',
-    accountCode: ''
+  FormAccount = this.fb.group({
+    bankCode: [''],
+    agency: ['', Validators.required],
+    accountCode: ['', Validators.required]
   });
 
   constructor(
@@ -34,14 +34,18 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.bank = this.data.bank;
-    this.accountForm.controls.bankCode.setValue(this.bank.code)
+    this.FormAccount.controls.bankCode.setValue(this.bank.code)
   }
 
   onSubmit(): void {
+    if(this.FormAccount.invalid){
+      this.FormAccount.markAllAsTouched();
+      return;
+    }
     this.listAccounts = localStorage.getItem('account') ? JSON.parse(localStorage.getItem('account')!) : [];
-    this.listAccounts.push(this.accountForm.value)
+    this.listAccounts.push(this.FormAccount.value)
     localStorage.setItem('account', JSON.stringify(this.listAccounts));
-    this.accountForm.reset();
+    this.FormAccount.reset();
     this.dialogRef.close();
     this.router.navigate(['/']);
   }

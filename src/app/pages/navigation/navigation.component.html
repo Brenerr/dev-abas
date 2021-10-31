@@ -1,6 +1,26 @@
-<mat-toolbar class="navbar">
-  <span>Dev Abas</span>
+<!-- ===== NavBar ===== -->
+<mat-toolbar [ngClass]="{'show-toolbar' : show}" class="navbar">
+  <div class="container">
+    <span class="text-title text-center w-100">DEV ABAS</span>
+  </div>
 </mat-toolbar>
-<div class="container py-5">
+
+<!-- ===== Content ===== -->
+<div class="container page py-5">
   <router-outlet></router-outlet>
 </div>
+
+<!-- ======= Footer ======= -->
+<footer class="footer">
+  <div class="container d-flex align-items-center justify-content-between">
+    <h3 class="text-title">Brener Alves</h3>
+    <div>
+      <a class="icon-social me-4" href="https://github.com/Brenerr" target="_blank">
+        <mat-icon svgIcon="icon-github" aria-hidden="false" aria-label="Github"></mat-icon>
+      </a>
+      <a class="icon-social" href="https://www.linkedin.com/in/brener-alves/" target="_blank">
+        <mat-icon svgIcon="icon-linkedin" aria-hidden="false" aria-label="Github"></mat-icon>
+      </a>
+    </div>
+  </div>
+</footer>

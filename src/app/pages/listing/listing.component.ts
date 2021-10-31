@@ -12,9 +12,13 @@ import { RegistrationComponent } from './registration/registration.component';
   styleUrls: ['./listing.component.scss']
 })
 export class ListingComponent implements OnInit {
-  code = '';
+
+  code: string = '';
   displayedColumns: string[] = ['ispb', 'name', 'code', 'fullName'];
   dataSource: MatTableDataSource<Bank>;
+
+  focusSearch: boolean = false;
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -52,12 +56,19 @@ export class ListingComponent implements OnInit {
   }
 
   searchCode() {
-    this.bankService.getByCode(this.code).subscribe(res => {
-      this.dataSource = new MatTableDataSource([res]);
-      this.dataSource.paginator = this.paginator;
-    }, err => {
-      alert(err.error.message);
-    });
+    if(this.code === '' || this.code === null) {
+      this.getAllBanks();
+    }
+    else {
+      this.bankService.getByCode(this.code).subscribe(res => {
+        this.dataSource = new MatTableDataSource([res]);
+        this.dataSource.paginator = this.paginator;
+      }, err => {
+        alert("Código não encontrado!");
+        this.code = '';
+        this.getAllBanks();
+      });
+    }
   }
 
 }

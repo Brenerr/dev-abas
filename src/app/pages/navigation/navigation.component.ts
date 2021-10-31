@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  scrollY: number = 0;
+  aux: number = 0;
+  show: boolean = true;
+
+  @HostListener('window:scroll') onWindowScroll() {
+    this.aux = this.scrollY;
+    this.scrollY = window.scrollY;
+    this.show = this.scrollY - this.aux <= 0 ? true : false;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

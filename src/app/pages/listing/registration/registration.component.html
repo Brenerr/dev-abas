@@ -1,9 +1,9 @@
 <h4 mat-dialog-title>
   <mat-toolbar color="'#212121'">
-    <span>Cadastrar Banco</span>
+    <span>Cadastrar Conta</span>
     <span class="spacer"></span>
     <button mat-icon-button mat-dialog-close>
-      <mat-icon>close</mat-icon>
+      <mat-icon aria-hidden="false" aria-label="Fechar">close</mat-icon>
     </button>
   </mat-toolbar>
 </h4>
@@ -15,19 +15,26 @@
   <p><b>Código:</b> {{bank.code}}</p>
   <p><b>Nome completo:</b> {{bank.fullName}}</p>
 
-  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
-    <div class="d-flex align-items-center justify-content-center">
-      <mat-form-field class="me-1" appearance="outline">
+  <form [formGroup]="FormAccount" (ngSubmit)="onSubmit()">
+    <div class="row d-flex align-items-center justify-content-center">
+      <mat-form-field class="col-6" appearance="outline" color="accent">
         <mat-label>Agência</mat-label>
-        <input matInput type="text" formControlName="agency">
+        <input matInput type="number" formControlName="agency">
+        <mat-error *ngIf="FormAccount.controls.agency.hasError('required') && FormAccount.controls.agency.touched">
+          <strong>Agência é obrigatória!</strong>
+        </mat-error>
       </mat-form-field>
 
-      <mat-form-field class="ms-1" appearance="outline">
+      <mat-form-field class="col-6" appearance="outline" color="accent">
         <mat-label>Conta</mat-label>
-        <input matInput type="text" formControlName="accountCode">
+        <input matInput type="number" formControlName="accountCode">
+        <mat-error
+          *ngIf="FormAccount.controls.accountCode.hasError('required') && FormAccount.controls.accountCode.touched">
+          <strong>Conta é obrigatória!</strong>
+        </mat-error>
       </mat-form-field>
     </div>
-    <button mat-raised-button type="submit" class="w-100 my-2">Salvar</button>
+    <button mat-raised-button color="accent" type="submit" class="btn-save">Salvar</button>
   </form>
 
 </div>
