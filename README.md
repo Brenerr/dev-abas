@@ -22,6 +22,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - JavaScript
 - TypeScript
 - Angular
+- Angular Material
+- Bootstrap
 
 ## 📜 Projeto
 
@@ -31,9 +33,9 @@ O projeto tem por objetivo cadastrar contas bancárias pessoais. Utiliza a api p
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Angular CLI](https://github.com/angular/angular-cli).
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
 
-### ⚙️ Rodando o Web
+### ⚙️ Rodando
 
 ```bash
 # Clone este repositório
